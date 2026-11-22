@@ -1,0 +1,53 @@
+====================================================================
+                 MINI-COURIER PLANNER — DELIVERY PLAN
+====================================================================
+Depot: DEPOT
+Vehicle capacity: 25 kg
+
+1. PRIORITIZED PARCEL QUEUE
+--------------------------------------------------------------------
+ID       Destination   Weight   Priority   Deadline
+P004     D                3 kg      5      2026-11-10 09:30
+P001     A                5 kg      5      2026-11-10 10:00
+P007     G                2 kg      5      2026-11-10 11:00
+P002     B                4 kg      4      2026-11-10 12:00
+P006     F                7 kg      4      2026-11-10 14:00
+P010     J                5 kg      4      2026-11-10 16:00
+P003     C                8 kg      3      2026-11-10 15:00
+P009     I                4 kg      3      2026-11-11 09:00
+P012     L                6 kg      3      2026-11-11 13:00
+P005     E                6 kg      2      2026-11-11 11:00
+P011     K                3 kg      2      2026-11-12 12:00
+P008     H                9 kg      1      2026-11-12 16:00
+
+2. OPTIMAL PACKAGE SELECTION (0/1 KNAPSACK)
+--------------------------------------------------------------------
+Selected parcels: 6
+Total weight: 25 / 25 kg
+Maximum total value: 445
+  • P004 → D | 3 kg | value 60
+  • P007 → G | 2 kg | value 45
+  • P002 → B | 4 kg | value 70
+  • P006 → F | 7 kg | value 110
+  • P010 → J | 5 kg | value 95
+  • P009 → I | 4 kg | value 65
+
+3. SHORTEST-PATH DISTANCES FROM DEPOT (DIJKSTRA)
+--------------------------------------------------------------------
+DEPOT → D: 5 km
+DEPOT → G: 3 km
+DEPOT → B: 6 km
+DEPOT → F: 7 km
+DEPOT → J: 6 km
+DEPOT → I: 8 km
+
+4. APPROXIMATED DELIVERY TOUR (NEAREST-NEIGHBOR TSP)
+--------------------------------------------------------------------
+Visit order: DEPOT → G → D → B → F → I → J → DEPOT
+Road path:   DEPOT → G → D → A → B → C → F → I → J → DEPOT
+Total tour distance (including return to depot): 28 km
+
+Algorithm note: Dijkstra finds shortest paths between stops; nearest-neighbor
+chooses the closest unvisited destination at each step. This is a heuristic,
+not a guaranteed optimal solution to the Traveling Salesperson Problem.
+====================================================================
